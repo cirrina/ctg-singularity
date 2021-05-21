@@ -8,4 +8,7 @@ scp -P 2222 -i /Users/david/vm-singularity/.vagrant/machines/default/virtualbox/
 scp -P 2222 -i /Users/david/vm-singularity/.vagrant/machines/default/virtualbox/private_key  ~/scripts/${myContainer}/${myContainer}.def vagrant@127.0.0.1:/home/vagrant/
 
 ## BUILD
-# sudo -E singularity build ${myContainer}.sif /Users/david/scripts/${myContainer}/${myContainer}.def
+vagrant global-status
+vagrant ssh 9d5f316
+sudo -E singularity build ${myContainer}.sif /Users/david/scripts/${myContainer}/${myContainer}.def
+exit
