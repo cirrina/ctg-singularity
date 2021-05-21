@@ -1,5 +1,5 @@
 #!/bin/bash
-myContainer="ctg-rnaseq-v1.0"
+myContainer="ctg-rnaseq-v1.1"
 
 #ssh octopoda.local
 #cd singularity/rnaSeqTools
