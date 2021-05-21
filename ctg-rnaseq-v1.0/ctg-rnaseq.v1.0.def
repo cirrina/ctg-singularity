@@ -2,7 +2,7 @@ Bootstrap:docker
 From:nfcore/base
 
 %labels
-    MAINTAINER David 
+    MAINTAINER David
     DESCRIPTION Container for various RNA seq analyses
     VERSION 0.0.1
 %environment
@@ -19,7 +19,7 @@ From:nfcore/base
     apt -y update
 
     ## install softwares
-    apt -y install libz-dev build-essential gettext cmake libxml2-dev libcurl4-openssl-dev libssl-dev make libbz2-dev libboost-dev python3-pip sudo
+    apt -y install libz-dev build-essential gettext cmake libxml2-dev libcurl4-openssl-dev libssl-dev make libbz2-dev libboost-dev python3-pip sudo tree
 
     ## install fastq scfreen from tar
     sudo tar -xvf FastQ-Screen-0.14.1.tar.gz -C /usr/local/bin
@@ -34,9 +34,9 @@ From:nfcore/base
 
     ## Install R and packages
     apt-get install -y r-base r-base-dev
-  
+
     R --version
-  
+
     # installing packages from cran
     R --slave -e 'install.packages("devtools",repos="https://cran.rstudio.com/")'
     R --slave -e 'install.packages("dplyr",repos="https://cran.rstudio.com/")'
@@ -79,7 +79,7 @@ From:nfcore/base
 %test
     #!/bin/sh
     exec R --slave -e "installed.packages()"
-           
+
 
     # Umi_tools
     #pip3 install Cython
