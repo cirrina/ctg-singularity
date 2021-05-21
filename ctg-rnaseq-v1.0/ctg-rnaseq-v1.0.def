@@ -19,7 +19,7 @@ From:nfcore/base
     apt -y update
 
     ## install softwares
-    apt -y install libz-dev build-essential gettext cmake libxml2-dev libcurl4-openssl-dev libssl-dev make libbz2-dev libboost-dev python3-pip sudo tree
+    apt -y install libz-dev build-essential gettext cmake libxml2-dev libcurl4-openssl-dev libssl-dev make libbz2-dev libboost-dev python3-pip sudo
 
     ## install fastq scfreen from tar
     sudo tar -xvf FastQ-Screen-0.14.1.tar.gz -C /usr/local/bin

@@ -9,6 +9,6 @@ scp -P 2222 -i /Users/david/vm-singularity/.vagrant/machines/default/virtualbox/
 
 ## BUILD
 vagrant global-status
-vagrant ssh 9d5f316
-sudo -E singularity build ${myContainer}.sif /Users/david/scripts/${myContainer}/${myContainer}.def
-exit
+echo "vagrant ssh 9d5f316"
+echo "sudo -E singularity build ${myContainer}.sif /Users/david/scripts/${myContainer}/${myContainer}.def"
+# exit
