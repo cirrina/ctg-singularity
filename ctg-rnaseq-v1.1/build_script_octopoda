@@ -9,6 +9,12 @@ scp -P 2222 -i /Users/david/vm-singularity/.vagrant/machines/default/virtualbox/
 
 ## BUILD
 vagrant global-status
-echo "vagrant ssh 9d5f316"
-echo "sudo -E singularity build ${myContainer}.sif /Users/david/scripts/${myContainer}/${myContainer}.def"
+echo "Start the vagrant virual envronment with:  vagrant ssh 9d5f316"
+echo "Build the singularity container with:  sudo -E singularity build ${myContainer}.sif ${myContainer}.def"
 # exit
+
+
+## after completion
+scp -P 2222 -i /Users/david/vm-singularity/.vagrant/machines/default/virtualbox/private_key vagrant@127.0.0.1:/home/vagrant/ctg-rnaseq-v1.1.sif .
+
+rsync -av rsync -av david@octopoda.local:/Users/david/scripts/ctg-singularity/ctg-rnaseq-v1.1/ctg-rnaseq-v1.1.sif ~/scripts/ctg-singularity/ctg-rnaseq-v1.1
