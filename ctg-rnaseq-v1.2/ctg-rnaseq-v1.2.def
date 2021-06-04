@@ -1,0 +1,92 @@
+Bootstrap:docker
+From:nfcore/base
+
+%labels
+    MAINTAINER David
+    DESCRIPTION Container for various RNA seq analyses
+    VERSION 0.0.1
+%environment
+    PATH=/opt/bin:/usr/local/bin:/opt/conda/envs/rnatools/bin/:$PATH
+%files
+    # /data/bnf/sw/bcl2fastq2-v2.20.0.422-Source.tar.gz /opt
+    picard.jar /usr/local/bin
+    trimmomatic-0.39.jar /usr/local/bin
+    FastQ-Screen-0.14.1.tar.gz /
+    environment.yml /
+%post
+    rm -rf /var/lib/apt/lists/*
+    apt -y clean
+    apt -y update
+
+    ## install softwares
+    apt -y install libz-dev build-essential gettext cmake libxml2-dev libcurl4-openssl-dev libssl-dev make libbz2-dev libboost-dev python3-pip sudo tree
+
+    ## install fastq scfreen from tar
+    sudo tar -xvf FastQ-Screen-0.14.1.tar.gz -C /usr/local/bin
+    rm FastQ-Screen-0.14.1.tar.gz
+
+    # dunno what thsis does
+    mkdir -p /usr/share/man/man1
+
+    ## set up python environment defined in .yml file
+    /opt/conda/bin/conda env create -f /environment.yml
+
+
+    ## Install R and packages
+    apt-get install -y r-base r-base-dev
+
+    R --version
+
+    # installing packages from cran
+    R --slave -e 'install.packages("devtools",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("dplyr",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("reshape2",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("tidyr",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("tidyverse",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("rmarkdown",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("knitr",repos="https://cran.rstudio.com/")'
+
+    R --slave -e 'install.packages("optparse",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("parallell",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("BiocParallel",repos="https://cran.rstudio.com/")'
+
+
+    R --slave -e 'install.packages("ggplot2",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("RColorBrewer",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("plotly",repos="https://cran.rstudio.com/")'
+
+    R --slave -e 'install.packages("rhdr5",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("Seurat",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("pheatmap",repos="https://cran.rstudio.com/")'
+
+
+     # installing from bioc
+    R --slave -e 'if (!requireNamespace("BiocManager",quietly=TRUE)) install.packages("BiocManager")'
+    R --slave -e 'BiocManager::install()'
+    R --slave -e 'BiocManager::install("tximport",ask=FALSE)'
+    R --slave -e 'BiocManager::install("biomaRt",ask=FALSE)'
+    R --slave -e 'BiocManager::install("DESeq2",ask=FALSE)'
+    R --slave -e 'BiocManager::install("Biobase",ask=FALSE)'
+    R --slave -e 'BiocManager::install("vsn",ask=FALSE)'
+    R --slave -e 'BiocManager::install("hexbin",ask=FALSE)'
+    R --slave -e 'BiocManager::install("glmpca",ask=FALSE)'
+    R --slave -e 'BiocManager::install("PoiClaClu",ask=FALSE)'
+    R --slave -e 'BiocManager::install("sva",ask=FALSE)'
+    R --slave -e 'BiocManager::install("SummarizedExperiment",ask=FALSE)'
+    R --slave -e 'BiocManager::install("dupRadar",ask=FALSE)'
+
+
+%test
+    #!/bin/sh
+    exec R --slave -e "installed.packages()"
+
+
+    # Umi_tools
+    #pip3 install Cython
+    #pip3 install umi_tools
+
+%runscript
+    echo "Welcome to the CTG RNAseq container with R and all that stuff"
+    exec /bin/bash
+    exec R --slave -e "sessionInfo()"
+    exec R --slave -e "installed.packages()"
