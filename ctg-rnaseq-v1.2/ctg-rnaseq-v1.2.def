@@ -60,6 +60,16 @@ From:nfcore/base
     R --slave -e 'install.packages("pheatmap",repos="https://cran.rstudio.com/")'
 
 
+    ## uroscan specific
+    R --slave -e 'install.packages("cowplot",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("reshape",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("ranger",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("jsonlite",repos="https://cran.rstudio.com/")'
+    R --slave -e 'install.packages("gridExtra",repos="https://cran.rstudio.com/")'
+
+
+
+
      # installing from bioc
     R --slave -e 'if (!requireNamespace("BiocManager",quietly=TRUE)) install.packages("BiocManager")'
     R --slave -e 'BiocManager::install()'
