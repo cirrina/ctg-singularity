@@ -39,8 +39,9 @@ dependencies:
   - pthread-stubs=0.4=h14c3975_1001
   - salmon=0.13.1
   - samtools=1.11
-  - star=2.7.6a=0
+  - star=2.5.3a
   - subread=2.0.1=hed695b0_0
+  - rseqc=2.6.4
   - xorg-fixesproto=5.0=h14c3975_1002
   - xorg-inputproto=2.3.2=h14c3975_1002
   - xorg-kbproto=1.0.7=h14c3975_1002
