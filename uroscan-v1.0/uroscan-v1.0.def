@@ -9,8 +9,8 @@ From:nfcore/base
     PATH=/opt/bin:/usr/local/bin:/opt/conda/envs/rnatools/bin/:$PATH
 %files
     # /data/bnf/sw/bcl2fastq2-v2.20.0.422-Source.tar.gz /opt
-    picard.jar /usr/local/bin
-    trimmomatic-0.39.jar /usr/local/bin
+    # picard.jar /usr/local/bin
+    # trimmomatic-0.39.jar /usr/local/bin
     FastQ-Screen-0.14.1.tar.gz /
     environment.yml /
 %post
@@ -56,7 +56,7 @@ From:nfcore/base
     R --slave -e 'install.packages("plotly",repos="https://cran.rstudio.com/")'
 
     R --slave -e 'install.packages("rhdr5",repos="https://cran.rstudio.com/")'
-    R --slave -e 'install.packages("Seurat",repos="https://cran.rstudio.com/")'
+ #  R --slave -e 'install.packages("Seurat",repos="https://cran.rstudio.com/")'
     R --slave -e 'install.packages("pheatmap",repos="https://cran.rstudio.com/")'
 
 
