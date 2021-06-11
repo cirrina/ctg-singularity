@@ -3,15 +3,11 @@ From:nfcore/base
 
 %labels
     MAINTAINER David
-    DESCRIPTION Container for various RNA seq analyses
+    DESCRIPTION Container for uroscan pipeline. slimmed version.
     VERSION 0.0.1
 %environment
     PATH=/opt/bin:/usr/local/bin:/opt/conda/envs/rnatools/bin/:$PATH
 %files
-    # /data/bnf/sw/bcl2fastq2-v2.20.0.422-Source.tar.gz /opt
-    # picard.jar /usr/local/bin
-    # trimmomatic-0.39.jar /usr/local/bin
-    # FastQ-Screen-0.14.1.tar.gz /
     environment.yml /
 %post
     rm -rf /var/lib/apt/lists/*
