@@ -54,7 +54,7 @@ dependencies:
   - libdeflate=1.0
   - libffi=3.2.1
   - libgcc=4.8.5
-  - libgfortran=3.0.1
+  - libgfortran
   - libiconv=1.16
   - liblapack=3.8.0
   - libopenblas=0.3.7
