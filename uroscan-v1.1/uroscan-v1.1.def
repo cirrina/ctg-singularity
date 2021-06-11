@@ -19,15 +19,3 @@ From:nfcore/base
 
     ## set up python environment defined in .yml file
     /opt/conda/bin/conda env create -f /environment.yml
-
-
-%test
-    #!/bin/sh
-    exec R --slave -e "installed.packages()"
-
-
-%runscript
-    echo "Welcome to the CTG RNAseq container with R and all that stuff"
-    exec /bin/bash
-    exec R --slave -e "sessionInfo()"
-    exec R --slave -e "installed.packages()"
