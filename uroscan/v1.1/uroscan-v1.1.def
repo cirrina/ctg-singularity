@@ -9,6 +9,7 @@ From:nfcore/base
     PATH=/opt/bin:/usr/local/bin:/opt/conda/envs/uroscan/bin/:$PATH
 %files
     environment.yml /
+    STAR /opt/bin
 %post
     rm -rf /var/lib/apt/lists/*
     apt -y clean
@@ -19,3 +20,10 @@ From:nfcore/base
 
     ## set up python environment defined in .yml file
     /opt/conda/bin/conda env create -f /environment.yml
+
+
+%runscript
+    echo "Welcome to the Uroscan container"
+    exec /bin/bash
+    exec R --slave -e "sessionInfo()"
+    exec R --slave -e "installed.packages()"
