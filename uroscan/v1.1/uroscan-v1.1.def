@@ -9,7 +9,7 @@ From:nfcore/base
     PATH=/opt/bin:/usr/local/bin:/opt/conda/envs/uroscan/bin/:$PATH
 %files
     environment.yml /
-    STAR /opt/bin
+    STAR /opt/bin/
 %post
     rm -rf /var/lib/apt/lists/*
     apt -y clean
