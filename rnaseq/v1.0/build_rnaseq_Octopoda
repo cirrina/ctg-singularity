@@ -1,0 +1,14 @@
+#!/bin/bash
+myContainer="ctg-rnaseq-v1.0"
+
+#ssh octopoda.local
+#cd singularity/rnaSeqTools
+
+scp -P 2222 -i /Users/david/vm-singularity/.vagrant/machines/default/virtualbox/private_key  ~/scripts/${myContainer}/environment.yml vagrant@127.0.0.1:/home/vagrant/
+scp -P 2222 -i /Users/david/vm-singularity/.vagrant/machines/default/virtualbox/private_key  ~/scripts/${myContainer}/${myContainer}.def vagrant@127.0.0.1:/home/vagrant/
+
+## BUILD
+vagrant global-status
+echo "vagrant ssh 9d5f316"
+echo "sudo -E singularity build ${myContainer}.sif /Users/david/scripts/${myContainer}/${myContainer}.def"
+# exit
