@@ -168,7 +168,7 @@ dependencies:
   - setuptools=44.0.0
   - six=1.16.0
   - sqlite=3.28.0
-  - star=2.5.3a
+  # - star=2.5.3a
   - tbb=2021.2.0
   - tk=8.6.10
   - wheel=0.36.2
