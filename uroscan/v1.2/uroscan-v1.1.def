@@ -1,0 +1,28 @@
+Bootstrap:docker
+From:nfcore/base
+
+%labels
+    MAINTAINER David
+    DESCRIPTION Container for uroscan pipeline. slimmed version.
+    VERSION 0.0.1
+%environment
+    PATH=/opt/bin:/usr/local/bin:/opt/conda/envs/uroscan/bin/:$PATH
+%files
+    environment.yml /
+    STAR /usr/local/bin/
+%post
+    rm -rf /var/lib/apt/lists/*
+    apt -y clean
+    apt -y update
+
+    ## install softwares
+    # apt -y install make sudo tree pip
+
+    ## set up python environment defined in .yml file
+    /opt/conda/bin/conda env create -f /environment.yml
+
+%runscript
+    echo "Welcome to the Uroscan container"
+    exec /bin/bash
+    exec R --slave -e "sessionInfo()"
+    exec R --slave -e "installed.packages()"
