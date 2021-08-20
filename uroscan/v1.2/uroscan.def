@@ -18,9 +18,9 @@ From:nfcore/base
 
 
     ## install softwares
+    apt -y install make sudo tree pip
     apt -y install libtbb2 ## https://www.metagenomics.wiki/tools/bowtie2/install/libtbb-so-2
     apt -y install libncurses5 ##
-    apt -y install make sudo tree pip
     # apt -y install libz-dev build-essential gettext cmake libxml2-dev libcurl4-openssl-dev libssl-dev make libbz2-dev libboost-dev python3-pip sudo tree
 
 
