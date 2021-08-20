@@ -10,6 +10,9 @@ From:nfcore/base
 %files
     environment.yml /
     STAR /usr/local/bin/
+    qualimap_v2.2.1 /usr/local/bin/
+
+
 %post
     rm -rf /var/lib/apt/lists/*
     apt -y clean
