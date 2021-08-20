@@ -2,4 +2,3 @@
 ## Ignore eventual sif contatiners
 *.sif
 .DS_Store
-uroscan/bin
