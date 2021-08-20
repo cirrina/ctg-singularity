@@ -2,3 +2,4 @@
 ## Ignore eventual sif contatiners
 *.sif
 .DS_Store
+RSEM-1.3.0/*
