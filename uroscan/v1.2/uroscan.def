@@ -11,7 +11,10 @@ From:nfcore/base
     environment.yml /
     STAR /usr/local/bin/
     qualimap_v2.2.1 /usr/local/bin/
-
+    salmon /usr/local/bin/
+    rseqc /usr/local/bin/
+    RSEM-1.3.0 /usr/local/bin/
+    bladderreport /usr/local/bin/
 
 %post
     rm -rf /var/lib/apt/lists/*
