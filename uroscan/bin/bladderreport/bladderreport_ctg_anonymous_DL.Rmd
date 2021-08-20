@@ -53,13 +53,13 @@ colorPal <- c("#7BC0F7", "#3B8AD9", "#F18226", "#FFDB69", "#61737B", "#A6B3B3", 
 knitr::opts_chunk$set(echo = TRUE)
 
 
-### 
+###
 # Functions Nour/Pontus
 ###
 
 source("scripts/functions_LundClassifier2018.r")
 
-### 
+###
 # </Functions Nour>
 ###
 
@@ -68,8 +68,8 @@ source("scripts/functions_LundClassifier2018.r")
 #rsem_file <- "/data/bnf/premap/rnaseq/18KFU0001_0.rsem"
 #clarity_id <- "ALL354A1"
 
-### 
-# read the GEX data for one sample 
+###
+# read the GEX data for one sample
 ###
 
 rsem_file <- params$rsem_in
@@ -104,30 +104,36 @@ sampledata<-data.frame(
 if( Sys.info()["nodename"] == "MTLUCMDS1"){
 
   system(paste0("python /data/bnf/scripts/extract_sample_info_from_clarity.py --sampleid ",clarity_id," --out ", "/data/bnf/tmp/",clarity_id,".json"))
-  
+
   patientdata <- fromJSON(paste0("/data/bnf/tmp/",clarity_id,".json"))
-  
+
   system(paste0("rm /data/bnf/tmp/",clarity_id,".json"))
-  
-  
+
+
   if(is.list(patientdata)){
   #sampledata$patientnamn <- patientdata$`Patient Name`
   sampledata$personnummer <- strsplit( patientdata$`Personal Identity Number`, "-" )[[1]][1]
   sampledata$ankomstdatum <- patientdata$`Date of arrival`
+
+
+  #######################################################
+  # CHANGE HERE TO INSERT RIN AND CONC FROM SampleSheet.
+  #######################################################
+
   sampledata$koncentration <- patientdata$`Sample concentration (ng/ul)`
   if(!is.null(patientdata$DV200)){
     sampledata$dv200 <- patientdata$DV200
   }
   if(!is.null(patientdata$RIN)){
-   sampledata$RIN <- patientdata$RIN 
+   sampledata$RIN <- patientdata$RIN
   }
   }
-  
+
 }
 
 
 
-### 
+###
 # Read QC
 ###
 
@@ -238,7 +244,7 @@ p1<-ggplot(rf,aes(x=subtyp,y=score,fill=max))+geom_bar(stat="identity",position 
 
 rownames(rf)<-NULL
 colnames(rf)<-c("Typ","Värde","Max")
-plot_grid(p1,NULL,plot_grid(tableGrob(rf[,-3],theme=t1),NULL,ncol=1,rel_heights =c(0.6,0.4)),rel_widths = c(0.5,0.25,0.25),ncol=3,axis="t") 
+plot_grid(p1,NULL,plot_grid(tableGrob(rf[,-3],theme=t1),NULL,ncol=1,rel_heights =c(0.6,0.4)),rel_widths = c(0.5,0.25,0.25),ncol=3,axis="t")
 
 ```
 
@@ -260,7 +266,7 @@ sb.uro <- sb[grep("Urotel-lik[[:blank:]][[:alnum:]]",sb$subtyp),]
 
 sb.main$subtyp <- factor(sb.main$subtyp, levels = sb.main$subtyp)
 sb.uro$subtyp <- factor(sb.uro$subtyp, levels = sb.uro$subtyp)
- 
+
 
 main.p<-ggplot(sb.main,aes(x=subtyp,y=score,fill=max))+geom_bar(stat="identity",position = "dodge")+ylab("Värde")+xlab("")+ylim(0,1)+scale_fill_manual(values = colorPal[c(1,5)])+theme(legend.title=element_blank(),legend.position = "none")+ theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
@@ -278,7 +284,7 @@ plot_grid(plot_grid(main.p,NULL,align="hv",rel_widths=c(0.67,0.33)),plot_grid(ta
 
   rownames(sb.uro)<-NULL
   colnames(sb.uro)<-c("Typ","Värde","Max")
-  
+
   t3<-ttheme_default(core=list(
         fg_params=list(fontface=setNames(c("plain","bold"),c("N","Y"))[sb.uro[,3]])
         ))
@@ -294,7 +300,7 @@ plot_grid(plot_grid(main.p,NULL,align="hv",rel_widths=c(0.67,0.33)),plot_grid(ta
 
 
 ```{r results_classifier_table_grader, include=T,echo=F,fig.width=2,fig.height=2}
-grade_score <-data.frame(score=results$SwitchBox$Scores[9]) 
+grade_score <-data.frame(score=results$SwitchBox$Scores[9])
 
 if(grade_score>0.5){
   cat(paste0("Expressionsprofilen tyder på att tumören är av grad 3 (värde: ",prettyNum(grade_score,digits=2), ")."))
@@ -319,8 +325,8 @@ ggplot(grade_score,(aes(y=score,x=sampleid)))+geom_bar(stat="identity")+ylab("")
 ```{r qc, include=T,echo=F}
 
 samplename <- params$sampleid
-# 
-# if(as.numeric(qc.data$uppmatt[1]) > 20 & as.numeric(substr(qc.data$uppmatt[2],1,2)) > 80 & as.numeric(substr(qc.data$uppmatt[3],1,2))< 10  
+#
+# if(as.numeric(qc.data$uppmatt[1]) > 20 & as.numeric(substr(qc.data$uppmatt[2],1,2)) > 80 & as.numeric(substr(qc.data$uppmatt[3],1,2))< 10
 #    & as.numeric(substr(qc.data$uppmatt[4],1,4))< 3){
 #   cat(paste0("Provet uppfyller av CTG uppställda kvalitetskriterier."))
 # }else{
@@ -334,15 +340,15 @@ if(as.numeric(qc.data$uppmatt[3]) < 20){
   fail <- c(1)
 }
 if (as.numeric(substr(qc.data$uppmatt[4],1,4)) < 80 ){
-  
+
   fail <- c(fail,2)
 }
 if (as.numeric(substr(qc.data$uppmatt[5],1,4))> 10 ){
-  
+
   fail <- c(fail,3)
 }
 if (as.numeric(substr(qc.data$uppmatt[6],1,4))> 3 ){
-  
+
   fail <- c(fail,4)
 }
 
@@ -351,7 +357,7 @@ if(sum(fail)>0){
   qc.data[,c(3,2,1)] %>%
     kable(col.names = c("","Riktvärde",samplename)) %>%
     kable_styling() %>% row_spec(fail, bold = T, background = "grey")
-  
+
 }else{
   qc.data[,c(3,2,1)] %>%
     kable(col.names = c("","Riktvärde",samplename)) %>%
@@ -371,4 +377,3 @@ Resulterande läsningar sekvensinpassades (STAR) samt kvantifierades (RSEM) mot 
 * Li et al 2013: https://arxiv.org/abs/1303.3997
 * A framework for variation discovery and genotyping using next-generation DNA sequencing dataDePristo M, Banks E, Poplin R, Garimella K, Maguire J, Hartl C, Philippakis A, del Angel G, Rivas MA, Hanna M, McKenna A, Fennell T, Kernytsky A, Sivachenko A, Cibulskis K, Gabriel S, Altshuler D, Daly M, 2011 NATURE GENETICS 43:491-498
 * From FastQ Data to High-Confidence Variant Calls: The Genome Analysis Toolkit Best Practices Pipeline Van der Auwera GA, Carneiro M, Hartl C, Poplin R, del Angel G, Levy-Moonshine A, Jordan T, Shakir K, Roazen D, Thibault J, Banks E, Garimella K, Altshuler D, Gabriel S, DePristo M, 2013 CURRENT PROTOCOLS IN BIOINFORMATICS 43:11.10.1-11.10.33
-
