@@ -3,7 +3,7 @@ From:nfcore/base
 
 %labels
     MAINTAINER David
-    DESCRIPTION Container for uroscan pipeline. slimmed version.
+    DESCRIPTION Container for uroscan pipeline. maxed out version.
     VERSION 0.0.1
 %environment
     PATH=/opt/bin:/usr/local/bin:/opt/conda/envs/uroscan/bin/:$PATH
