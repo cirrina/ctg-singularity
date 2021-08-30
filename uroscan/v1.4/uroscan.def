@@ -32,7 +32,12 @@ From: centos:centos7.6.1810
       bowtie2=2.3.3.1 \
       salmon=0.13.1 \
       star=2.5.3a \
-      sambamba=0.6.8
+      sambamba=0.6.8 \
+      r-base=3.4.1 \
+      fastqc \
+      multiqc \
+      samtools
+
 
     source /opt/software/conda/bin/activate /opt/software/uroscan_env
     cd /opt/software
