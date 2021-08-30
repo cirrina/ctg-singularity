@@ -59,11 +59,9 @@ From: centos:centos7.6.1810
       r-tidyverse \
       r-markdown \
       r-optparse \
-      r-parallelly \
       r-plotly \
-      r-pheatmap \
-      bioconductor-deseq2 \
-      bioconductor-biobase
+      r-pheatmap
+
 
 
 

@@ -5,7 +5,7 @@ NMoved to MAMBA install
 uses CentOS instead of Ubuntu
 
 
-REMOVED 
+REMOVED
 bioconductor-tximport \
 bioconductor-biomart \
 bioconductor-vsn \
@@ -13,7 +13,7 @@ bioconductor-sva \
 bioconductor-summarizedexperiment \
 bioconductor-dupradar
 
-
+removed  r-parallelly      bioconductor-deseq2  bioconductor-biobase
 
 ## ERRORS in v1.1
 
