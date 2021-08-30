@@ -5,6 +5,16 @@ NMoved to MAMBA install
 uses CentOS instead of Ubuntu
 
 
+REMOVED 
+bioconductor-tximport \
+bioconductor-biomart \
+bioconductor-vsn \
+bioconductor-sva \
+bioconductor-summarizedexperiment \
+bioconductor-dupradar
+
+
+
 ## ERRORS in v1.1
 
 
@@ -27,3 +37,6 @@ ADDING
   - fastqc=0.11.9=0
 libncurses.so.5
 libtbb.so.2
+
+
+RE

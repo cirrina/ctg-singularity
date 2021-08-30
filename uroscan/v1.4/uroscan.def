@@ -63,15 +63,7 @@ From: centos:centos7.6.1810
       r-plotly \
       r-pheatmap \
       bioconductor-deseq2 \
-      bioconductor-biobase \
-      bioconductor-tximport \
-      bioconductor-biomart \
-      bioconductor-vsn \
-      bioconductor-sva \
-      bioconductor-summarizedexperiment \
-      bioconductor-dupradar
-
-
+      bioconductor-biobase
 
 
 
