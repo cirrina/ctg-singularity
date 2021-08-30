@@ -25,6 +25,7 @@ From: centos:centos7.6.1810
     /opt/software/conda/bin/conda config --add channels defaults
     /opt/software/conda/bin/conda config --add channels conda-forge
     /opt/software/conda/bin/conda config --add channels bioconda
+    /opt/software/conda/bin/conda config --add channels dranew
     /opt/software/conda/bin/conda install -y -c conda-forge mamba
 
     /opt/software/conda/bin/mamba create -p /opt/software/uroscan_env -y "python>=3.6" \
