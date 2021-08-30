@@ -1,0 +1,51 @@
+Bootstrap:docker
+From:nfcore/base
+
+%labels
+    MAINTAINER David
+    DESCRIPTION Container for uroscan pipeline. maxed out version.
+    VERSION 1.3
+%environment
+    PATH=/opt/bin:/usr/local/bin:/opt/conda/envs/uroscan/bin/:$PATH
+%files
+    environment.yml /
+    STAR /usr/local/bin/
+    qualimap_v2.2.1 /usr/local/bin/
+    salmon /usr/local/bin/
+    rseqc /usr/local/bin/
+    RSEM-1.3.0 /usr/local/bin/
+    bladderreport /usr/local/bin/
+    picard.jar /usr/local/bin
+    trimmomatic-0.39.jar /usr/local/bin
+    FastQ-Screen-0.14.1.tar.gz /
+
+%post
+    rm -rf /var/lib/apt/lists/*
+    apt -y clean
+    apt -y update
+    # conda install tbb=2020.2      ## https://www.biostars.org/p/494922/
+
+
+    ## install softwares
+    # apt -y install make sudo tree pip
+    apt -y install libz-dev build-essential gettext cmake libxml2-dev libcurl4-openssl-dev libssl-dev make libbz2-dev libboost-dev python3-pip sudo tree
+    apt -y install libtbb2 ## https://www.metagenomics.wiki/tools/bowtie2/install/libtbb-so-2
+    apt -y install libncurses5 ##
+
+
+    ## install fastq scfreen from tar
+    sudo tar -xvf FastQ-Screen-0.14.1.tar.gz -C /usr/local/bin
+    rm FastQ-Screen-0.14.1.tar.gz
+
+    # dunno what thsis does
+    mkdir -p /usr/share/man/man1
+
+    ## set up python environment defined in .yml file
+    /opt/conda/bin/conda env create -f /environment.yml
+
+
+%runscript
+    echo "Welcome to the Uroscan container"
+    exec /bin/bash
+    exec R --slave -e "sessionInfo()"
+    exec R --slave -e "installed.packages()"
