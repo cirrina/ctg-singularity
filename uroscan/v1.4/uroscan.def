@@ -36,7 +36,8 @@ From: centos:centos7.6.1810
       r-base=3.4.1 \
       fastqc \
       multiqc \
-      samtools
+      samtools \
+      rseqc
 
 
     source /opt/software/conda/bin/activate /opt/software/uroscan_env
