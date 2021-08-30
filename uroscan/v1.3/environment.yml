@@ -41,6 +41,7 @@ dependencies:
   - rseqc=2.6.4
   - salmon=0.13.1
   - samtools=1.11
+  - sambamba-0.6.8
   - star=2.7.6a=0
   - subread=2.0.1=hed695b0_0
   - xorg-fixesproto=5.0=h14c3975_1002
