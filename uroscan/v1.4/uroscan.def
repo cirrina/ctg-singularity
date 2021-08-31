@@ -15,7 +15,7 @@ From: centos:centos7.6.1810
 %post
     yum -y install epel-release wget which nano curl zlib-devel
     yum -y groupinstall "Development Tools"
-    yum -y install libtbb2
+    yum -y install tbb ## https://www.metagenomics.wiki/tools/bowtie2/install/libtbb-so-2
     ## yum -y install libncurses5 ##
 
     mkdir -p /opt/software
