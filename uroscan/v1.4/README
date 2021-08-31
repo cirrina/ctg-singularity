@@ -7,8 +7,10 @@ uses CentOS instead of Ubuntu
 
 REMOVED
 
+r-devtools \
+
 r-gridextra=2.2.1 \
-r-ranger=0.7.0 \
+
 r-rcolorbrewer \
 r-reshape2 \
 r-tidyr \

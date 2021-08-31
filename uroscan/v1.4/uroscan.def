@@ -51,7 +51,10 @@ From: centos:centos7.6.1810
       r-reshape=0.8.6 \
       r-ggplot2=2.2.0 \
       r-ranger=0.7.0 \
-      r-cowplot=0.9.1
+      r-cowplot=0.9.1 \
+      libtbb2 \
+      libncurses5
+
 
 
 
