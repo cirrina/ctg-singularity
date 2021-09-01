@@ -37,6 +37,7 @@ From: centos:centos7.6.1810
       sambamba=0.6.8 \
       r-base=3.4.1 \
       qualimap \
+      bowtie2 \
       rseqc \
       picard \
       fastqc \
