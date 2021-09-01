@@ -36,6 +36,7 @@ From: centos:centos7.6.1810
       star=2.5.3a \
       sambamba=0.6.8 \
       r-base=3.4.1 \
+      salmon=0.13.1 \
       qualimap \
       bowtie2 \
       rseqc \
@@ -52,7 +53,8 @@ From: centos:centos7.6.1810
       r-dplyr=0.7.4 \
       r-reshape=0.8.6 \
       r-ggplot2=2.2.0 \
-      r-cowplot=0.9.1
+      r-cowplot=0.9.1 \
+      r-ranger
 
 # r-ranger=0.7.0 \
   #bowtie2=2.3.3.1 \
