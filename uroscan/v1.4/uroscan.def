@@ -54,7 +54,6 @@ From: centos:centos7.6.1810
       r-cowplot=0.9.1
 
 # r-ranger=0.7.0 \
-
   #bowtie2=2.3.3.1 \
   #salmon=0.13.1 \
       #
