@@ -33,8 +33,8 @@ From: centos:centos7.6.1810
 
     /opt/software/conda/bin/mamba create -p /opt/software/uroscan_env -y "python>=3.6" \
       rsem=1.3.0 \
-      # star=2.5.3a \
-      # sambamba=0.6.8 \
+      star=2.5.3a \
+      sambamba=0.6.8 \
       r-base=3.4.1 \
       qualimap \
       rseqc \
@@ -51,12 +51,12 @@ From: centos:centos7.6.1810
       r-dplyr=0.7.4 \
       r-reshape=0.8.6 \
       r-ggplot2=2.2.0 \
-      r-ranger=0.7.0 \
+      # r-ranger=0.7.0 \
       r-cowplot=0.9.1
 
   #bowtie2=2.3.3.1 \
   #salmon=0.13.1 \
-
+      #
 
 
 
