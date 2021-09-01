@@ -3,7 +3,7 @@ From: centos:centos7.6.1810
 
 
 %environment
-    export PATH=/opt/software/conda/bin/:/opt/software/salmon:$PATH
+    export PATH=$PATH:/opt/software/conda/bin/
     source /opt/software/conda/bin/activate /opt/software/uroscan_env
 
 
@@ -11,7 +11,7 @@ From: centos:centos7.6.1810
     # qualimap_v2.2.1 /opt/software/
     # picard.jar /opt/software/
     bladderreport /opt/software/
-    salmon /opt/software/
+    # salmon /opt/software/
 
 %post
     yum -y install epel-release wget which nano curl zlib-devel
@@ -33,9 +33,7 @@ From: centos:centos7.6.1810
 
     /opt/software/conda/bin/mamba create -p /opt/software/uroscan_env -y "python>=3.6" \
       rsem=1.3.0 \
-      #bowtie2=2.3.3.1 \
-      #salmon=0.13.1 \
-      star=2.5.3a \
+      # star=2.5.3a \
       sambamba=0.6.8 \
       r-base=3.4.1 \
       qualimap \
@@ -56,6 +54,8 @@ From: centos:centos7.6.1810
       r-ranger=0.7.0 \
       r-cowplot=0.9.1
 
+  #bowtie2=2.3.3.1 \
+  #salmon=0.13.1 \
 
 
 
