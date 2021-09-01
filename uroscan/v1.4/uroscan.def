@@ -70,7 +70,7 @@ From: centos:centos7.6.1810
     exec R --slave -e "sessionInfo()"
     exec R --slave -e "installed.packages()"
     exec STAR --version
-    exec salmon --version
+    # exec salmon --version
     # exec bowtie2 --version
     exec rsem-calculate-expression --version
     exec geneBody_coverage.py --version
