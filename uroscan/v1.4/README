@@ -1,3 +1,66 @@
+v1.4
+
+NOT correct versions of bowtie2 and ...
+/opt/software/uroscan_env/bin/bowtie2-align-s version 2.4.4
+
+
+uroscan.sif STAR --version
+STAR_2.5.3a
+
+uroscan.sif bcl2fastq --version
+BCL to FASTQ file converter
+bcl2fastq v2.19.0.316
+Copyright (c) 2007-2017 Illumina, Inc.
+
+uroscan.sif rsem-calculate-expression --version
+Current version: RSEM v1.3.0
+
+uroscan.sif picard --version
+
+!! featureCounts NOT included. Should be added ?
+
+
+sambamba 0.6.8 by Artem Tarasov and Pjotr Prins (C) 2012-2018
+    LDC 1.13.0 / DMD v2.083.1 / LLVM7.0.1 / bootstrap LDC - the LLVM D compiler (0.17.6)
+
+
+QualiMap v.2.2.2-dev
+Exception in thread "main" java.awt.AWTError: Can't connect to X11 window server using ':0.0' as the value of the DISPLAY variable.
+
+geneBody_coverage.py 4.0.0
+
+
+FastQ Screen v0.14.0
+
+
+salmon v0.13.1
+
+R
+R version 3.4.1 (2017-06-30) -- "Single Candle"
+
+> sessionInfo()
+R version 3.4.1 (2017-06-30)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: CentOS Linux 7 (Core)
+
+Matrix products: default
+BLAS: /opt/software/uroscan_env/lib/R/lib/libRblas.so
+LAPACK: /opt/software/uroscan_env/lib/R/lib/libRlapack.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base
+
+loaded via a namespace (and not attached):
+[1] compiler_3.4.1
+>
 
 
 v 1.4

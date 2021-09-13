@@ -61,6 +61,7 @@ From: centos:centos7.6.1810
   #salmon=0.13.1 \
       #
 
+## featureCounts NOT included
 
 
 
