@@ -18,6 +18,7 @@ From: centos:centos7.6.1810
     yum -y groupinstall "Development Tools"
     yum -y install tbb ## https://www.metagenomics.wiki/tools/bowtie2/install/libtbb-so-2
     ## yum -y install libncurses5 ##
+    yum -y install lynx
 
     mkdir -p /opt/software
 
