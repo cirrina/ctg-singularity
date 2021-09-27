@@ -91,10 +91,6 @@ From:nfcore/base
     exec R --slave -e "installed.packages()"
 
 
-    # Umi_tools
-    #pip3 install Cython
-    #pip3 install umi_tools
-
 %runscript
     echo "Welcome to the CTG RNAseq container with R and all that stuff"
     exec /bin/bash
